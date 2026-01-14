@@ -1,6 +1,6 @@
 import utils.Server;
 
-public abstract class Shopserver extends Server {
+public class Shopserver extends Server {
 
     public Shopserver(int pPort) {
         super(pPort);
@@ -32,6 +32,17 @@ public abstract class Shopserver extends Server {
          this.send(pClientIP, pClientPort, "Bitte geben Sie ja oder nein ein.");
          }
         }
+        else if (nachrichtTeil[0].equals("ABMELDEN"))
+        {
+            closeConnection(pClientIP, pClientPort);
+        }
+        else
+        {
+            this.send(pClientIP, pClientPort, "Bitte korrigieren Sie Ihre Eingabe");
+        }
     }
 
+    public void processClosingConnection(String pClientIP, int pClientPort){
+
     }
+}
